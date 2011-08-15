@@ -1,0 +1,5 @@
+#!/bin/sh
+
+FF=`which firefox`
+
+$FF -remote "openURL( $1 , new-tab)"

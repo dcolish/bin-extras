@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pg_ctl -D $1 -l ~/local/log/`basename $1`.log stop
