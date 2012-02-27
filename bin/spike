@@ -1,0 +1,7 @@
+mkdir $1
+cd $1
+virtualenv --no-site-packages ENV
+ENV/bin/activate
+git clone $2
+python setup.py develop
+bash

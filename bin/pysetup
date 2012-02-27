@@ -1,0 +1,22 @@
+#!/bin/bash
+
+project_name=$1
+
+cat >> `pwd`/setup.py << EOF
+from setuptools import find_packages, setup
+
+# description = ''
+# with open('README.rst') as f:
+#     description = f.read()
+
+setup(name=${project_name},
+      version='dev',
+      description='',
+      long_description='',
+      packages=find_packages(),
+      author='Dan Colish',
+      author_email='dcolish@gmail.com',
+      license='',
+      platforms='any',
+      )
+EOF

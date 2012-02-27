@@ -19,7 +19,6 @@ int main(int argc, char** argv) {
         printf("%s\n", "Path resolution failed");
         exit(1);
     }
-    
+
     return 0;
 }
-        
