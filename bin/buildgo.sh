@@ -3,4 +3,4 @@
 export GOROOT=`pwd`
 export GOOS=darwin
 export GOARCH=amd64
-export GOBIN=~/local/bin/
+export GOBIN=~/local/go/bin/
