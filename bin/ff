@@ -1,5 +1,5 @@
 #!/bin/sh
 
-FF=`which firefox`
+FF=`which conkeror`
 
-$FF -remote "openURL( $1 , new-tab)"
+$FF "${1}"
