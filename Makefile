@@ -9,7 +9,7 @@ clean:
 	rm -rf _build
 
 install:
-	cp _build/* bin/*
+	cp _build/* bin/
 
 setup:
 	mkdir -p _build

@@ -2,6 +2,7 @@
 
 set -e
 
+LOCATION=`dirname $(realpath $0)`
 BIN_FILES=`ls bin`
 CMD=${1:-""}
 
@@ -17,7 +18,7 @@ function install {
 
     for x in $BIN_FILES
     do
-        ln -s `pwd`/bin/${x} $HOME/bin/${x}
+        ln -sf  $LOCATION//bin/${x} $HOME/bin/${x}
     done
 }
 
@@ -34,4 +35,3 @@ else
     echo "Not a proper command"
     help
 fi
-
