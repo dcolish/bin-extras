@@ -369,6 +369,11 @@ def build_gist_cli(subparsers):
     list_group.add_argument(
         '--starred', help='Your starred gists', action='store_true')
 
+    sync_parser = gist_subparsers.add_parser(
+        'sync', help='Syncronize owned gists to a local path')
+    sync_parser.add_argument(
+        '-d', '--path', help='Output directory to sync gists to')
+
     star_parser = gist_subparsers.add_parser(
         'star', help='View a specific gist')
     star_parser.add_argument('ids', nargs='+')

@@ -1,0 +1,2 @@
+#!/bin/sh
+aptitude -q -F "%?p=%?V %M" --disable-columns search \~i
