@@ -91,6 +91,7 @@ def authorize(user, password):
         encoded_auth = base64.b64encode('%s:%s' % (user, password))
         conn.request('POST', '/authorizations', json.dumps(data),
                      {'Authorization': 'Basic %s' % encoded_auth,
+                      'User-Agent': 'GIST',
                       'Content-Type': 'application/json'})
         resp = conn.getresponse()
         return json.loads(resp.read())
@@ -111,6 +112,7 @@ def create(token, filename, content, message, public):
         conn.request('POST', path, json.dumps(data),
                      {
                 'Content-Type': 'application/json',
+                'User-Agent': 'GIST',
                 'Authorization': 'bearer %s' % token,
                       }
                      )
@@ -145,6 +147,7 @@ def delete(token, id_, verbose):
     with closing(HTTPSConnection(HOST, timeout=10)) as conn:
         conn.request('DELETE', path, headers={
                 'Authorization': 'bearer %s' % token,
+                'User-Agent': 'GIST',
                 }
                      )
         resp = conn.getresponse()
@@ -174,6 +177,7 @@ def edit_controller(token, namespace):
         conn.request('PATCH', path, json.dumps(data),
                      {
                 'Content-Type': 'application/json',
+                'User-Agent': 'GIST',
                 'Authorization': 'bearer %s' % token,
                       })
 
@@ -199,6 +203,7 @@ def list_controller(token, namespace):
 
     with closing(HTTPSConnection(HOST, timeout=10)) as conn:
         conn.request('GET', path, headers={
+                'User-Agent': 'GIST',
                 'Authorization': 'bearer %s' % token,
                 })
         resp = conn.getresponse()
@@ -232,6 +237,7 @@ def star(token, id_, verbose):
     with closing(HTTPSConnection(HOST, timeout=10)) as conn:
         conn.request('PUT', path, headers={
                 'Content-Length': '0',
+                'User-Agent': 'GIST',
                 'Authorization': 'bearer %s' % token,
                 })
         resp = conn.getresponse()
@@ -248,6 +254,7 @@ def unstar(token, id_, verbose):
     path = '/gists/%s/star' % id_
     with closing(HTTPSConnection(HOST, timeout=10)) as conn:
         conn.request('DELETE', path, headers={
+                'User-Agent': 'GIST',
                 'Authorization': 'bearer %s' % token,
                 })
         resp = conn.getresponse()
@@ -264,6 +271,7 @@ def view(token, gist_id, verbose):
     path = '/gists/%s' % gist_id
     with closing(HTTPSConnection(HOST, timeout=10)) as conn:
         conn.request('GET', path, headers={
+                'User-Agent': 'GIST',
                 'Authorization': 'bearer %s' % token,
                 })
         resp = conn.getresponse()
@@ -290,6 +298,7 @@ def repo_list_controller(token, namespace):
 
     with closing(HTTPSConnection(HOST, timeout=10)) as conn:
         conn.request('GET', path, headers={
+                'User-Agent': 'GIST',
                 'Authorization': 'bearer %s' % token,
                 })
         resp = conn.getresponse()
