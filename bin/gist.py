@@ -342,7 +342,7 @@ def build_gist_cli(subparsers):
         '-m', '--message', help='A message describing this gist', default='')
     create_parser.add_argument(
         '--public', help='Set the default visibility for this paste.',
-        default=True)
+        default=False)
     create_parser.add_argument(
         'paste', nargs='?', help='Accepts a filename or - for stdin',
         type=FileType('r'), default=None)
